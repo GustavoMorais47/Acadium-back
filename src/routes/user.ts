@@ -1,22 +1,19 @@
 import { Request , Response, Router } from "express";
 import authMiddleware from "../middleware/auth";
+import getAll from "../controller/User/getAll";
+import getOneUser from "../controller/User/getOneUser";
+import createUser from "../controller/User/createUser";
 
 const userRouter = Router();
 
 //retorna todos os usuários do sistema
-userRouter.get('/', authMiddleware, (req: Request, res: Response) => {
-    
-});
+userRouter.get('/', authMiddleware, getAll);
 
 //retorna um usuário em específico
-userRouter.get('/:id', authMiddleware, (req: Request, res: Response) => {
-
-});
+userRouter.get('/:cpf', authMiddleware, getOneUser);
 
 // cadastra um novo usuário no sistema
-userRouter.post('/', authMiddleware, (req: Request, res: Response) => {
-
-});
+userRouter.post('/', authMiddleware, createUser);
 
 // atualiza um usuário em específico
 userRouter.put('/:id', authMiddleware, (req: Request, res: Response) => {

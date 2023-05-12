@@ -2,9 +2,18 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
     name: String,
-    cpf: String,
+    cpf: {
+        type: String,
+        unique: true,
+        validate: {
+            validator: (cpf: string) => {
+                return cpf.length === 11;
+            },
+            message: "CPF inválido!",
+        },
+    },
     email: String,
-    role: String,
+    role: Array<Number>,
     password: String,
 })
 

@@ -22,14 +22,7 @@ const Auth = async (req: Request, res: Response) => {
         }
 
         if(user.password === password){
-
-            const User = {
-                name: user.name,
-                cpf: user.cpf,
-                email: user.email,
-            }
-
-            const token = jwt.sign({ user: User }, SECRET_KEY!, { algorithm: 'HS256', noTimestamp: true });
+            const token = jwt.sign({ userID: user._id }, SECRET_KEY!, { algorithm: 'HS256', noTimestamp: true });
             return res.status(200).json({ token })
         }else{
             return res.status(400).json({error: "Senha inválida!"} )
