@@ -4,7 +4,7 @@
 3. Copie os dados do arquivo `.env_example` para dentro do arquivo `.env`;
 ```bash
 PORT= 8080
-SECRET_KEY = 'Uni!Acadium@Pw' #Ou qualquer outrar chave de segurança
+SECRET_KEY = 'Uni!Acadium@Pw' #Ou qualquer outra chave de segurança
 DB_USER = 'Prod'
 DB_PASS = 'B7kaEesIhrq1dkk6'
 ```

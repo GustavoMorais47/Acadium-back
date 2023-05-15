@@ -1,10 +1,14 @@
 import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true,
+    },
     cpf: {
         type: String,
         unique: true,
+        required: true,
         validate: {
             validator: (cpf: string) => {
                 return cpf.length === 11;
@@ -12,9 +16,15 @@ const UserSchema = new mongoose.Schema({
             message: "CPF inválido!",
         },
     },
-    email: String,
+    email: {
+        type: String,
+        required: true,
+    },
     role: Array<Number>,
-    password: String,
+    password: {
+        type: String,
+        required: true,
+    },
 })
 
 const UserModel = mongoose.model('user', UserSchema);

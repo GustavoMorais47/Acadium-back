@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 import '../models/User';
+import '../models/Room';
 
 dotenv.config();
 

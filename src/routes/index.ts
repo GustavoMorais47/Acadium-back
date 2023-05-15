@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 import calledRouter from "./called";
 import reserveRouter from "./reserve";
 import roomRouter from "./room";
@@ -9,11 +8,11 @@ import authMiddleware from "../middleware/auth";
 
 const router = Router();
 
-router.post('/login', (req, res) => Auth(req, res));
+router.post('/login', Auth);
 
-router.use('/user', authMiddleware ,userRouter);
+router.use('/user', authMiddleware, userRouter);
 router.use('/called', calledRouter);
 router.use('/reserve', reserveRouter);
-router.use('/room', roomRouter);
+router.use('/room', authMiddleware, roomRouter);
 
 export default router;
