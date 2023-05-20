@@ -1,13 +1,13 @@
 import { Request, Response } from "express"
-import RoomModel from "../../models/Room"
+import ReserveModel from "../../models/Reserve"
 
 const getOneReserve = async (req: Request, res: Response) => {
     const { id } = req.params
-    const user = await RoomModel.findOne({ _id: id })
-    if (!user) {
-        return res.status(400).json({ error: "Sala/Laboratório não encontrado na base de dados!" })
+    const reserve = await ReserveModel.findOne({ _id: id })
+    if (!reserve) {
+        return res.status(400).json({ error: "Reserva não encontrada na base de dados!" })
     }
-    return res.send(user)
+    return res.send(reserve)
 }
 
 export default getOneReserve
